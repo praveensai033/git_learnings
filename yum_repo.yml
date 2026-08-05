@@ -1,0 +1,23 @@
+---
+- name: Configure the yum repository
+  hosts: all
+  tasks:
+    - name: Create the yum repo file
+      ansible.builtin.yum_repository:
+        name: EX24_BASE
+        description: EX254 base software
+        baseurl: http://thois.domain7.example.com/BaseOS
+        gpgcheck: yes
+        enabled: yes
+        filename: /etc/yum.repos.d/ex24_base.repo
+        gpgkey: http://rhois.domain7.example.com/RHEL/RPM-GPG-KEY-redhat-release
+
+    - name: Create the appstream repo
+      ansible.builtin.yum_repository:
+        name: EX294_STREAK
+        description: EX294 stream software
+        baseurl: http://thois.domain7.example.com/AppStream
+        gpgcheck: yes
+        enabled: yes
+        filename: /etc/yum.repos.d/ex294_stream.repo
+        gpgkey: http://thois.domain7.example.com/RHEL/RPM-GPG-KEY-edhat-release
