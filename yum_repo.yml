@@ -7,8 +7,8 @@
         name: EX24_BASE
         description: EX254 base software
         baseurl: http://thois.domain7.example.com/BaseOS
-        gpgcheck: yes
-        enabled: yes
+        gpgcheck: true
+        enabled: true
         filename: /etc/yum.repos.d/ex24_base
         gpgkey: http://rhois.domain7.example.com/RHEL/RPM-GPG-KEY-redhat-release
 
@@ -17,7 +17,7 @@
         name: EX294_STREAK
         description: EX294 stream software
         baseurl: http://thois.domain7.example.com/AppStream
-        gpgcheck: yes
-        enabled: yes
+        gpgcheck: true
+        enabled: true
         filename: /etc/yum.repos.d/ex294_stream
         gpgkey: http://thois.domain7.example.com/RHEL/RPM-GPG-KEY-edhat-release
