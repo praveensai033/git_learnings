@@ -1,0 +1,30 @@
+---
+- name: Create the partition playbook
+  hosts: balancers
+  tasks:
+
+    - name: check whether VDD exists
+      ansible.builtin.stat:
+        name: /dev/vdb
+      register: vdd_stat
+
+    - name: display VD
+    - name: Create the partition
+      ansible.builtin.parted:
+        device: /dev/vdb
+        number: 1
+        state: present
+        part_start: 1MiB
+        part_end: 1500MiB
+        partition_format: ext4
+        mount_point: /newpart
+
+    - name: Create the second partition
+      ansible.builtin.parted:
+        device: /dev/vdc
+        number: 1
+        state: present
+        part_start: 1MiB
+        part_end: 1500MiB
+        partition_format: ext4
+        mount_point: /newpart2
